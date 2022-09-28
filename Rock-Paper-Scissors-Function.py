@@ -14,7 +14,7 @@ def opening():
 def player_choice():
     player_options = [f'{option.name}[{option.value}]' for option in Options]
     player_options_str = ','.join(player_options)
-    choice = int(input(f'Please choose your wapon ({player_options_str}): '))
+    choice = int(input(f'Please choose your weapon ({player_options_str}): '))
     made_choice = Options(choice)
     return made_choice
     
@@ -36,7 +36,7 @@ def who_won(made_choice, cpu_made_choice):
     elif made_choice.value == 2 and cpu_made_choice.value == 1:
         print('\n' + f'{made_choice.name} cut {cpu_made_choice.name}, so You are the WINNER!' + '\n')
     else:
-        print('\n' + f'ups, sorry mate but {cpu_made_choice.name} beats {made_choice.name}, so You LOST' + '\n')
+        print('\n' + f'ups, sorry mate, but {cpu_made_choice.name} beats {made_choice.name}, so You LOST' + '\n')
 
 
 def play_game():
@@ -46,7 +46,7 @@ def play_game():
             made_choice = player_choice()
         except ValueError as er:
             valid_number = (len(Options) - 1)
-            print(f"Sory mate, wrong choice. Please pick a number from 0 to {valid_number}")
+            print(f"Sorry mate, wrong choice. Please pick a number from 0 to {valid_number}")
             continue
 
         cpu_made_choice = cpu_choice()
@@ -57,7 +57,7 @@ def play_game():
             who_won(made_choice, cpu_made_choice)
 
         
-        play_again = input('\n' + "Are You ready for another challange? (y/n): " + '\n')
+        play_again = input('\n' + "Are You ready for another challenge? (y/n): " + '\n')
         if play_again.lower() != "y":
             print('\n\n' + 'THE END'.center(130, '=') + '\n\n')
             break
